@@ -16,17 +16,78 @@ namespace Simple_Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        double lastNumber, result;
+
         public MainWindow()
         {
             InitializeComponent();
+            acButton.Click += AcButton_Click;
+            negativeButton.Click += NegativeButton_Click;
+            percentageButton.Click += PercentageButton_Click;
+            
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void PercentageButton_Click(object sender, RoutedEventArgs e)
         {
+            if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
+            {
+                lastNumber = lastNumber / 100;
+                resultLabel.Content = lastNumber.ToString();
+            }
+        }
+
+        private void NegativeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
+            {
+                lastNumber = lastNumber * -1;
+                resultLabel.Content = lastNumber.ToString();
+            }
+        }
+
+        private void AcButton_Click(object sender, RoutedEventArgs e)
+        {
+            resultLabel.Content = "0";
+        }
+
+        private void NumberButton_Click(object sender, RoutedEventArgs e)
+        {
+            int selectedValue = int.Parse( ((Button)sender).Content.ToString() );
+
+   /*         ((Button)sender).Content
+            if (sender == zeroButton)
+                selectedValue = 0;
+            else if (sender == oneButton)
+                selectedValue = 1;
+            else if (sender == twoButton)
+                selectedValue = 2;
+            else if (sender == threeButton)
+                selectedValue = 3;
+            else if (sender == fourButton)
+                selectedValue = 4;
+            else if (sender == fiveButton)
+                selectedValue = 5;
+            else if (sender == sixButton)
+                selectedValue = 6;
+            else if (sender == sevenButton)
+                selectedValue = 7;
+            else if (sender == eightButton)
+                selectedValue = 8;
+            else if (sender == nineButton)
+                selectedValue = 9;
+            */
+
             if (resultLabel.Content.ToString() == "0")
-                resultLabel.Content = "7";
+                resultLabel.Content = $"{selectedValue}";
             else
-                resultLabel.Content += $"{resultLabel.Content}7";
+                resultLabel.Content = $"{resultLabel.Content}{selectedValue}";
+        }
+
+        private void OperationButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
+                resultLabel.Content = 0;
+            
         }
     }
 }

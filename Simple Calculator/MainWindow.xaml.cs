@@ -80,7 +80,7 @@ namespace Simple_Calculator
             if (resultLabel.Content.ToString() == "0")
                 resultLabel.Content = $"{selectedValue}";
             else
-                resultLabel.Content = $"{resultLabel.Content}{selectedValue}";
+                resultLabel.Content = $"{resultLabel.Content}{selectedValue}";      
         }
 
         private void OperationButton_Click(object sender, RoutedEventArgs e)

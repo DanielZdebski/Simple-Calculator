@@ -52,7 +52,7 @@ namespace Simple_Calculator
 
         private void NumberButton_Click(object sender, RoutedEventArgs e)
         {
-            int selectedValue = int.Parse( ((Button)sender).Content.ToString() );
+            int selectedValue = int.Parse( ((Button)sender).Content.ToString() );       // alternative to (Button)sender is (sender as Button)
 
    /*         ((Button)sender).Content
             if (sender == zeroButton)

@@ -46,7 +46,10 @@ namespace Simple_Calculator
                         result = SupportClasses.SimpleMath.Multiply(lastNumber, newNumber);
                         break;
                     case SelectedOperator.Division:
-                        result = SupportClasses.SimpleMath.Divide(lastNumber, newNumber);
+                        if (SupportClasses.SimpleMath.Divide(lastNumber, newNumber, out result) == 999)
+                        {
+                            MessageBox.Show("Division by 0 is not supported", "Wrong operation", MessageBoxButton.OK, MessageBoxImage.Error);    
+                        }
                         break;
                     default:
                         break;

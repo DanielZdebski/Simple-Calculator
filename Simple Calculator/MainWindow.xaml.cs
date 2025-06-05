@@ -17,14 +17,43 @@ namespace Simple_Calculator
     public partial class MainWindow : Window
     {
         double lastNumber, result;
-
+        SelectedOperator selectedOperator;
         public MainWindow()
         {
             InitializeComponent();
             acButton.Click += AcButton_Click;
             negativeButton.Click += NegativeButton_Click;
             percentageButton.Click += PercentageButton_Click;
+            equalButton.Click += EqualButton_Click;
             
+        }
+
+        private void EqualButton_Click(object sender, RoutedEventArgs e)
+        {
+            double newNumber;
+
+            if (double.TryParse(resultLabel.Content.ToString(), out newNumber)) 
+            {
+                switch (selectedOperator)
+                { 
+                    case SelectedOperator.Addition:
+                        result = SupportClasses.SimpleMath.Add(lastNumber, newNumber);
+                        break;
+                    case SelectedOperator.Substruction:
+                        result = SupportClasses.SimpleMath.Subtract(lastNumber, newNumber);
+                        break;
+                    case SelectedOperator.Multiplication:
+                        result = SupportClasses.SimpleMath.Multiply(lastNumber, newNumber);
+                        break;
+                    case SelectedOperator.Division:
+                        result = SupportClasses.SimpleMath.Divide(lastNumber, newNumber);
+                        break;
+                    default:
+                        break;
+                }
+
+                resultLabel.Content = $"{result}";
+            }
         }
 
         private void PercentageButton_Click(object sender, RoutedEventArgs e)
@@ -54,7 +83,7 @@ namespace Simple_Calculator
         {
             int selectedValue = int.Parse( ((Button)sender).Content.ToString() );       // alternative to (Button)sender is (sender as Button)
 
-   /*         ((Button)sender).Content
+/*         ((Button)sender).Content
             if (sender == zeroButton)
                 selectedValue = 0;
             else if (sender == oneButton)
@@ -75,7 +104,7 @@ namespace Simple_Calculator
                 selectedValue = 8;
             else if (sender == nineButton)
                 selectedValue = 9;
-            */
+*/
 
             if (resultLabel.Content.ToString() == "0")
                 resultLabel.Content = $"{selectedValue}";
@@ -87,7 +116,34 @@ namespace Simple_Calculator
         {
             if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
                 resultLabel.Content = 0;
-            
+
+            if (sender == multiplyButton)
+                selectedOperator = SelectedOperator.Multiplication;
+            else if (sender == divideButton)
+                selectedOperator = SelectedOperator.Division;
+            else if (sender == minusButton)
+                selectedOperator = SelectedOperator.Substruction;
+            else if (sender == plusButton)
+                selectedOperator = SelectedOperator.Addition;
+
+        }
+
+        private void dotButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (resultLabel.Content.ToString().Contains("."))
+            {
+                // Do nothing
+            }
+
+            resultLabel.Content = $"{resultLabel.Content}.";
+        }
+
+        public enum SelectedOperator 
+        {
+            Addition,
+            Substruction,
+            Multiplication,
+            Division
         }
     }
 }

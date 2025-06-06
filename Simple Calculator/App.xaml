@@ -3,10 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Simple_Calculator"
              StartupUri="MainWindow.xaml">
-    <Application.Resources>
-        <SolidColorBrush x:Key="numbersColor" Color="#666666"/>
-        <SolidColorBrush x:Key="operatorColor" Color="Green"/>
 
-        <SolidColorBrush x:Key="foregroundColor" Color="white"/>
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/ButtonStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="70"/>
+            </Style>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

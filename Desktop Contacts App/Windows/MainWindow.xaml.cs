@@ -9,6 +9,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Desktop_Contacts_App.Windows;
+
+
 namespace Desktop_Contacts_App
 {
     /// <summary>
@@ -23,7 +26,8 @@ namespace Desktop_Contacts_App
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Windows.NewContactWindow newContactWindow = new Windows.NewContactWindow();
+            newContactWindow.ShowDialog();
         }
     }
 }

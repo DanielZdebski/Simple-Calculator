@@ -1,101 +1,127 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.Model;
+using WeatherApp.ViewModel.Commands;
 using WeatherApp.ViewModel.Helpers;
 
 namespace WeatherApp.ViewModel
 {
-    public class WeatherVM : INotifyPropertyChanged
-    {
-        #region Constructors
-        public WeatherVM()
-        { 
-            // This code is only for DesignMode to view the values.
-            if(DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
-            {
-                SelectedCity = new City();
-                SelectedCity.LocalizedName = "New York";
-
-                CurrentConditions = new CurrentConditions
+        public class WeatherVM : INotifyPropertyChanged
+        {
+            #region Constructors
+            public WeatherVM()
+            { 
+                // This code is only for DesignMode to view the values.
+                if(DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
                 {
-                    WeatherText = "Partly cloudy",
-                    Temperature = new Temperature
+                    SelectedCity = new City();
+                    SelectedCity.LocalizedName = "New York";
+
+                    CurrentConditions = new CurrentConditions
                     {
-                        Metric = new Units
+                        WeatherText = "Partly cloudy",
+                        Temperature = new Temperature
                         {
-                            Value = 21
+                            Metric = new Units
+                            {
+                                Value = "21"
+                            }
                         }
-                    }
-                };
+                    };
+                }
+
+                SearchCommand = new SearchCommand(this);
+                Cities = new ObservableCollection<City>();          // Initial the new observable collection of City.
             }
-        }
-        #endregion
+            #endregion
 
-        #region Properties
-        #region Query property
-        private string query;
+#region Properties
+            #region Query property
+            private string query;
 
-        public string Query
-        {
-            get { return query; }
-            set 
+            public string Query
             {
-                query = value;
-                OnPropertyChanged("Query");
+                get { return query; }
+                set 
+                {
+                    query = value;
+                    OnPropertyChanged("Query");
+                }
             }
-        }
-        #endregion
+            #endregion
 
-        #region CurrentConditions property
-        private CurrentConditions currentConditions;
+            #region CurrentConditions property
+            private CurrentConditions currentConditions;
 
-        public CurrentConditions CurrentConditions
-        {
-            get { return currentConditions; }
-            set 
-            { 
-                currentConditions = value;
-                OnPropertyChanged("CurrentConditions");
+            public CurrentConditions CurrentConditions
+            {
+                get { return currentConditions; }
+                set 
+                { 
+                    currentConditions = value;
+                    OnPropertyChanged("CurrentConditions");
+                }
             }
-        }
-        #endregion
+            #endregion
 
-        #region SelectedCity property
-        private City selectedCity;
-        public City SelectedCity
-        {
-            get { return selectedCity; }
-            set 
-            { 
-                selectedCity = value;
+            #region SelectedCity property
+            private City selectedCity;
+            public City SelectedCity
+            {
+                get { return selectedCity; }
 
-                OnPropertyChanged("SelectedCity");
+                set 
+                { 
+                    selectedCity = value;
+
+                    OnPropertyChanged("SelectedCity");
+
+                    if (!DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
+                        GetCurrentConditions();
+                }
             }
-        }
-        #endregion
-        #endregion
+            #endregion
 
-        #region events
-        public event PropertyChangedEventHandler? PropertyChanged;
-        #endregion
+            public SearchCommand SearchCommand { get; set; }
 
-        #region methods
-        ///  <Summary> 
-        ///  This method is used with ICommand when the search button is pressed. 
-        ///  <Summary>
-        public async void MakeQuery()
-        {
-            var cities = await AccuWeatherHelper.GetCities(Query);
+            public ObservableCollection<City> Cities { get; set; }
+#endregion
+
+            #region events
+            public event PropertyChangedEventHandler? PropertyChanged;
+            #endregion
+
+            #region methods
+            ///  <Summary> 
+            ///  This method is used with ICommand when the search button is pressed. 
+            ///  <Summary>
+            public async void MakeQuery()
+            {
+                var cities = await AccuWeatherHelper.GetCities(Query);
+
+                Cities.Clear();         // First clear the observable collection Cities.
+                foreach (var city in cities)
+                    Cities.Add(city);
+            }
+
+            private void OnPropertyChanged(string propertyName)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+
+            private async void GetCurrentConditions()
+            {
+                Query = string.Empty;
+                Cities.Clear();
+
+                CurrentConditions = await AccuWeatherHelper.GetCurrentConditions(SelectedCity.Key);
+            }
+            #endregion
         }
-        
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
     }
-}
+    

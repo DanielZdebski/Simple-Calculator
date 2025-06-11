@@ -7,12 +7,16 @@ using System.Windows.Input;
 
 namespace WeatherApp.ViewModel.Commands
 {
-    internal class SearchCommand : ICommand
+    public class SearchCommand : ICommand
     {
         public WeatherVM VM { get; set; }
 
 
-        public event EventHandler? CanExecuteChanged;
+        public event EventHandler? CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
 
         public SearchCommand(WeatherVM vm) 
         {
@@ -21,6 +25,11 @@ namespace WeatherApp.ViewModel.Commands
 
         public bool CanExecute(object? parameter)
         {
+            string query = (string)parameter;
+
+            if (string.IsNullOrEmpty(query))
+                return false;
+
             return true;
         }
 

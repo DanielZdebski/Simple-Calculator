@@ -8,8 +8,8 @@ namespace WeatherApp.Model
 {
     public class Units
     {
-        public int Value { get; set; }
-        public string Unit { get; set; }
+        public string? Value { get; set; }
+        public string? Unit { get; set; }
         public int UnitType { get; set; }
     }
 
@@ -23,7 +23,7 @@ namespace WeatherApp.Model
     {
         public DateTime LocalObservationDateTime { get; set; }
         public int EpochTime { get; set; }
-        public string WeatherText { get; set; }
+        public string? WeatherText { get; set; }
         public int WeatherIcon { get; set; }
         public bool HasPrecipitation { get; set; }
         public object PrecipitationType { get; set; }

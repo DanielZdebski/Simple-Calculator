@@ -18,7 +18,7 @@
         public string Key { get; set; }
         public string Type { get; set; }
         public int Rank { get; set; }
-        public string LocalizedName { get; set; }
+        public string? LocalizedName { get; set; }
         public Area Country { get; set; }
         public AdministrativeArea AdministrativeArea { get; set; }
     }

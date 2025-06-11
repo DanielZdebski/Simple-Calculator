@@ -7,15 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple Calculator", "Simple
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportClasses", "SupportClasses\SupportClasses.csproj", "{8F637B51-08BF-4A80-9FEB-31E8B33858DE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Simple Calculator Project", "Simple Calculator Project", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 Simple Calculator Project", "01 Simple Calculator Project", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contact App Project", "Contact App Project", "{162214C4-3138-4ED5-9789-689F38477502}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 Contact App Project", "02 Contact App Project", "{162214C4-3138-4ED5-9789-689F38477502}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desktop Contacts App", "Desktop Contacts App\Desktop Contacts App.csproj", "{7A71383C-DDC0-42B0-A6F3-AF97B6F0EE4E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomVision (REST and AI)", "CustomVision (REST and AI)", "{AA8CD225-3CA5-4097-8D3E-FD426CB186F7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 CustomVision (REST and AI)", "03 CustomVision (REST and AI)", "{AA8CD225-3CA5-4097-8D3E-FD426CB186F7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVVM - WeatherAcu app", "MVVM - WeatherAcu app", "{A9902F43-672F-4C05-8168-39B25B772F5F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 MVVM - WeatherAcu app", "04 MVVM - WeatherAcu app", "{A9902F43-672F-4C05-8168-39B25B772F5F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp", "WeatherApp\WeatherApp.csproj", "{EAEB512E-D4A4-4990-B442-6A8E82536A3A}"
 EndProject

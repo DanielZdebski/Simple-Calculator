@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 MVVM - WeatherAcu app", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp", "WeatherApp\WeatherApp.csproj", "{EAEB512E-D4A4-4990-B442-6A8E82536A3A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 EverNoteClone", "05 EverNoteClone", "{4E130401-E0A1-4307-A040-C4E88A4C6825}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvernoteClone", "EvernoteClone\EvernoteClone.csproj", "{35854EDA-75EA-4783-BCAE-3CCFDB30B34D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,10 @@ Global
 		{EAEB512E-D4A4-4990-B442-6A8E82536A3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAEB512E-D4A4-4990-B442-6A8E82536A3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAEB512E-D4A4-4990-B442-6A8E82536A3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35854EDA-75EA-4783-BCAE-3CCFDB30B34D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35854EDA-75EA-4783-BCAE-3CCFDB30B34D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35854EDA-75EA-4783-BCAE-3CCFDB30B34D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35854EDA-75EA-4783-BCAE-3CCFDB30B34D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +58,7 @@ Global
 		{8F637B51-08BF-4A80-9FEB-31E8B33858DE} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{7A71383C-DDC0-42B0-A6F3-AF97B6F0EE4E} = {162214C4-3138-4ED5-9789-689F38477502}
 		{EAEB512E-D4A4-4990-B442-6A8E82536A3A} = {A9902F43-672F-4C05-8168-39B25B772F5F}
+		{35854EDA-75EA-4783-BCAE-3CCFDB30B34D} = {4E130401-E0A1-4307-A040-C4E88A4C6825}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {33D4BF06-CACB-4AE5-85ED-A529B2EB7862}

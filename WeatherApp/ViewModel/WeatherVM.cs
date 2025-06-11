@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.Model;
+using WeatherApp.ViewModel.Helpers;
 
 namespace WeatherApp.ViewModel
 {
     public class WeatherVM : INotifyPropertyChanged
     {
-
+        #region Constructors
         public WeatherVM()
         { 
             // This code is only for DesignMode to view the values.
@@ -32,7 +33,9 @@ namespace WeatherApp.ViewModel
                 };
             }
         }
+        #endregion
 
+        #region Properties
         #region Query property
         private string query;
 
@@ -74,12 +77,25 @@ namespace WeatherApp.ViewModel
             }
         }
         #endregion
+        #endregion
 
+        #region events
         public event PropertyChangedEventHandler? PropertyChanged;
+        #endregion
 
+        #region methods
+        ///  <Summary> 
+        ///  This method is used with ICommand when the search button is pressed. 
+        ///  <Summary>
+        public async void MakeQuery()
+        {
+            var cities = await AccuWeatherHelper.GetCities(Query);
+        }
+        
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        #endregion
     }
 }

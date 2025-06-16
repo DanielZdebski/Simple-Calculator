@@ -1,6 +1,8 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,7 +10,9 @@ namespace EvernoteClone.Model
 {
     class Note
     {
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+        [Indexed]
         public int NotebookId { get; set; }
         public string Title { get; set; }
         public DateTime CreatedAt { get; set; }

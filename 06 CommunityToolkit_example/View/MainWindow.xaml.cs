@@ -24,7 +24,7 @@ namespace _06_CommunityToolkit_example.View
         public MainWindow()
         {
             //            DataContext = ViewModel = new MainWindowViewModel();
-            DataContext = ViewModel; // new MainWindowViewModel();
+            DataContext = new MainWindowViewModel();
             InitializeComponent();
         }
     }

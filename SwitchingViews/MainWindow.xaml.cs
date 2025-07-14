@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,11 +19,9 @@ namespace SwitchingViews
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainWindowViewModel viewModel;
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel(viewModel);
         }
     }
 }

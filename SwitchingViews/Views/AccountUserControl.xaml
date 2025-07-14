@@ -6,8 +6,7 @@
              xmlns:local="clr-namespace:SwitchingViews.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
-        <Label Content="Hello this is account" FontSize="50"/>
-
+    <Grid Background="GreenYellow">
+        <TextBlock Margin="5"  Text="Hello this is account" FontSize="50"/>
     </Grid>
 </UserControl>

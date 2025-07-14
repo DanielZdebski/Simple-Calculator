@@ -12,36 +12,36 @@ using System.Threading.Tasks;
 
 namespace SwitchingViews.ViewModels
 {
-
-    partial class MainWindowViewModel: BaseViewModel
+        partial class MainWindowViewModel: BaseViewModel
     {
         [ObservableProperty]
-        private MainWindowViewModel viewModel;
-
-        [ObservableProperty]
-        private BaseViewModel selectedViewModel;
+        private BaseViewModel? selectedViewModel;
         
         [ObservableProperty]
-        private string? title = "Daniel";
-
-
-        public MainWindowViewModel(MainWindowViewModel viewModel) 
-        {
-            this.viewModel = viewModel;
-        }
+        private string title = "Daniel";
 
         [RelayCommand]
         private void Home()
         {
-            viewModel.selectedViewModel = new HomeViewModel();
+            SelectedViewModel = new HomeViewModel();
+            Title = "Home";
             Debug.WriteLine("Home is on");
         }
 
         [RelayCommand]
         private void Account() 
         {
-            viewModel.selectedViewModel = new AccountViewModel();
+            Title = "Account";
+            SelectedViewModel = new AccountViewModel();
             Debug.WriteLine("Account is on");
+        }
+
+        public MainWindowViewModel() 
+        {
+            if (DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
+            {
+                selectedViewModel= new HomeViewModel();
+            }
         }
     }
 }

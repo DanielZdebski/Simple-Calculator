@@ -6,14 +6,6 @@
              xmlns:Views="clr-namespace:SwitchingViews.Views"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-
-        <DataTemplate DataType="x:Type VM:HomeViewModel">
-            <Views:HomeUserControl/>
-        </DataTemplate>
-
-        <DataTemplate DataType="x:Type VM:AccountViewModel">
-            <Views:AccountUserControl/>
-        </DataTemplate>
         
     </Application.Resources>
 </Application>

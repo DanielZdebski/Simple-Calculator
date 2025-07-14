@@ -4,12 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SwitchingViews.Views"
+             xmlns:i ="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
              xmlns:VM = "clr-namespace:SwitchingViews.ViewModels"
-             d:DataContext="{d:DesignInstance VM:HomeViewModel}"
-             d:DesignHeight="200" d:DesignWidth="200"
-             Background="White">
-    <Grid>
-        <TextBlock Text="{Binding Text}" FontSize="50"/>
+             d:DesignHeight="200" d:DesignWidth="200">
+    <!--             d:DataContext="{d:DesignInstance VM:HomeViewModel}" !-->
+
+    <UserControl.Resources>
+        <VM:HomeViewModel x:Key="HomeViewModel"/>
+    </UserControl.Resources>
+
+    <Grid DataContext="{StaticResource HomeViewModel}" Background="IndianRed">
+
+
+            <TextBlock Text="{Binding Text}" 
+                       Background="AliceBlue" 
+                       FontSize="50" 
+                       HorizontalAlignment="left" 
+                       VerticalAlignment="top">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseEnter">
+                        <i:InvokeCommandAction Command="{Binding MouseEnterCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBlock>
     </Grid>
 </UserControl>

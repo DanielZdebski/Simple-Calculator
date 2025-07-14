@@ -10,21 +10,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using _06_CommunityToolkit_example.ViewModel;
+using Components.ViewModel;
 
-namespace _06_CommunityToolkit_example.View
+namespace Components.View.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ZeroDPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ZeroDPage : Page
     {
-        private MainWindowViewModel ViewModel => (MainWindowViewModel)ViewModel;
-        public MainWindow()
+        public MainWindowViewModel ViewModel { get; set; }
+        public ZeroDPage()
         {
-            //            DataContext = ViewModel = new MainWindowViewModel();
-            DataContext = ViewModel; // new MainWindowViewModel();
+            DataContext = ViewModel = new MainWindowViewModel();
             InitializeComponent();
         }
     }

@@ -11,21 +11,27 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using _06_CommunityToolkit_example.ViewModel;
+using Components.ViewModel;
+using Components.View.Pages;
 
-namespace _06_CommunityToolkit_example.View
+namespace Components.View.Windows
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainWindowViewModel ViewModel => (MainWindowViewModel)ViewModel;
-        public MainWindow()
+        //        ControlPage ControlPage {  get; set; }
+        //    ZeroDPage ZeroDPage { get; set; }
+        private MainWindowViewModel ViewModel => (MainWindowViewModel)ViewModel; public MainWindow()
         {
-            //            DataContext = ViewModel = new MainWindowViewModel();
-            DataContext = ViewModel; // new MainWindowViewModel();
             InitializeComponent();
+
+            DataContext = new MainWindowViewModel();
+
+//            ControlPage = new ControlPage();
+//            Frame1.Content = ControlPage;
+        //    ZeroDPage = new ZeroDPage();
         }
     }
 }

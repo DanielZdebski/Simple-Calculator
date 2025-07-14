@@ -10,21 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using _06_CommunityToolkit_example.ViewModel;
 
-namespace _06_CommunityToolkit_example.View
+namespace SwitchingViews.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for HomeUserControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HomeUserControl : UserControl
     {
-        private MainWindowViewModel ViewModel => (MainWindowViewModel)ViewModel;
-        public MainWindow()
+        public HomeUserControl()
         {
-            //            DataContext = ViewModel = new MainWindowViewModel();
-            DataContext = ViewModel; // new MainWindowViewModel();
             InitializeComponent();
         }
     }

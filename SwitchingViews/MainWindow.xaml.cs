@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,22 +6,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using _06_CommunityToolkit_example.ViewModel;
+using SwitchingViews.ViewModels;
+using SwitchingViews.Views;
 
-namespace _06_CommunityToolkit_example.View
+namespace SwitchingViews
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainWindowViewModel ViewModel => (MainWindowViewModel)ViewModel;
+        private MainWindowViewModel viewModel;
         public MainWindow()
         {
-            //            DataContext = ViewModel = new MainWindowViewModel();
-            DataContext = ViewModel; // new MainWindowViewModel();
             InitializeComponent();
+            DataContext = new MainWindowViewModel(viewModel);
         }
     }
 }

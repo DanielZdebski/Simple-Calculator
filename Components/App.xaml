@@ -1,0 +1,23 @@
+﻿<Application x:Class="Components.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Components"
+             xmlns:VM="clr-namespace:Components.ViewModel"
+             xmlns:pages="clr-namespace:Components.View.Pages"
+             StartupUri="View/Windows/MainWindow.xaml">
+    <Application.Resources>
+        
+        <DataTemplate DataType="{x:Type VM:OneDComponentViewModel}">
+            <pages:OneDPage/>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type VM:ThreeDComponentViewModel}">
+            <pages:ThreeDPage/>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type VM:ZeroDComponentViewModel}">
+            <pages:ZeroDPage/>
+        </DataTemplate>
+        
+    </Application.Resources>
+</Application>

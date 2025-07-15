@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace Components.ViewModel
 {
-    [ObservableObject]
     public partial class MainWindowViewModel : BaseViewModel
     {
         [ObservableProperty]

@@ -7,38 +7,43 @@ using System.Text;
 using System.Threading.Tasks;
 using Components.Model;
 using System.Diagnostics;
+using Components.ViewModel;
+using CommunityToolkit.Mvvm.Messaging;
+using Components.Model;
+using Components.ViewModel.Messages;
 
 namespace Components.ViewModel
 {
-    partial class CommandPageViewModel: MainWindowViewModel
+    partial class CommandPageViewModel: BaseViewModel
     {
+        ComponentType model;
+        public CommandPageViewModel() 
+        {
+           
+            WeakReferenceMessenger.Default.Register<CommandChangedMessage>(this, (r, m)) =>
+                { }
+        }
 
         [RelayCommand]
         private void ZeroD()
         {
-            componentType = ComponentTypeEnum.ZeroDComponent;
-            Debug.WriteLine(componentType);
-            componentTypeText = "0D";
-            selectedViewModel = new ZeroDComponentViewModel();
+            model.Type = ComponentTypeEnum.ZeroDComponent;
+  //          mainWindowViewModel.ComponentType = ComponentTypeEnum.ZeroDComponent;
+  //          Debug.WriteLine(mainWindowViewModel.ComponentType);
+  //          mainWindowViewModel.ComponentTypeText = "0D";
+  //          mainWindowViewModel.SelectedViewModel = new ZeroDComponentViewModel();
         }
 
         [RelayCommand]
         private void OneD() 
-        {
-            componentType = ComponentTypeEnum.OneDComponent;
-            componentTypeText = "1D";
-            Debug.WriteLine(componentType);
-            selectedViewModel = new OneDComponentViewModel();
+        {          
+
         }
 
         [RelayCommand]
         private void ThreeD() 
         {
-            
-            componentType = ComponentTypeEnum.ThreeDComponent;
-            componentTypeText = "3D";
-            Debug.WriteLine(componentType);
-            selectedViewModel = new ThreeDComponentViewModel();
+
         }
     }
 }

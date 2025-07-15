@@ -11,6 +11,6 @@
       Title="ZeroDPage">
 
     <Grid Margin="20" Background="Aqua">
-        <TextBlock Text="{Binding componentTypeText}"  FontSize="30" FontWeight="Bold"/>
+        <TextBlock Text="{Binding ComponentTypeText}"  FontSize="30" FontWeight="Bold"/>
     </Grid>
 </Page>

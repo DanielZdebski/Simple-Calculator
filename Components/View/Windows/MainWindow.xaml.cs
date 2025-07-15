@@ -23,11 +23,13 @@ namespace Components.View.Windows
     {
         //        ControlPage ControlPage {  get; set; }
         //    ZeroDPage ZeroDPage { get; set; }
-        private MainWindowViewModel ViewModel => (MainWindowViewModel)ViewModel; public MainWindow()
+//        private MainWindowViewModel ViewModel => (MainWindowViewModel)ViewModel;
+        MainWindowViewModel ViewModel { get; set; }
+        public MainWindow()
         {
             InitializeComponent();
 
-            DataContext = new MainWindowViewModel();
+            DataContext = ViewModel = new MainWindowViewModel();
 
 //            ControlPage = new ControlPage();
 //            Frame1.Content = ControlPage;

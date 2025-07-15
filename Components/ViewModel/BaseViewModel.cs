@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Components.ViewModel
 {
-    public partial class BaseViewModel
+    public partial class BaseViewModel: ObservableRecipient
     {
 
     }

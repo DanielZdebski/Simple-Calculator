@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.ServiceProcess;
+using System.Xaml;
 
 namespace EvernoteClone.ViewModel.Commands
 {
@@ -31,7 +33,7 @@ namespace EvernoteClone.ViewModel.Commands
         {
             Notebook selectedNotebook = parameter as Notebook;
             VM.CreateNote(selectedNotebook.Id);
-
+            
             //TODO: get notes
         }
     }

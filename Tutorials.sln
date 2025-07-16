@@ -35,6 +35,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "08 Mvvm-Switching Views", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwitchingViews", "SwitchingViews\SwitchingViews.csproj", "{0253A972-E265-4100-81A5-399BDE7542B7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "09 Mvvm - messenger use", "09 Mvvm - messenger use", "{D2BBCB15-581F-419E-836D-EFF5A91A76FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessengerApp", "MessengerApp\MessengerApp.csproj", "{4329DE67-1332-41CA-9E72-A86C88F0D9B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +77,10 @@ Global
 		{0253A972-E265-4100-81A5-399BDE7542B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0253A972-E265-4100-81A5-399BDE7542B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0253A972-E265-4100-81A5-399BDE7542B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4329DE67-1332-41CA-9E72-A86C88F0D9B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4329DE67-1332-41CA-9E72-A86C88F0D9B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4329DE67-1332-41CA-9E72-A86C88F0D9B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4329DE67-1332-41CA-9E72-A86C88F0D9B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +94,7 @@ Global
 		{4238857F-D1CB-4884-B53D-ED5A86DC351C} = {2D8304BD-DB8B-439D-B6ED-85D0BE8375FE}
 		{3782359C-50FF-456E-B91E-A732A1A6C5FA} = {4E7EE50D-1100-453D-B5F1-B880AA3BFCC4}
 		{0253A972-E265-4100-81A5-399BDE7542B7} = {DE6C26EA-2519-4B4F-8F72-87B0AA081540}
+		{4329DE67-1332-41CA-9E72-A86C88F0D9B8} = {D2BBCB15-581F-419E-836D-EFF5A91A76FB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {33D4BF06-CACB-4AE5-85ED-A529B2EB7862}

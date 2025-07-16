@@ -1,0 +1,31 @@
+﻿<Window x:Class="MessengerApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:VM="clr-namespace:MessengerApp.ViewModels"
+        xmlns:Views="clr-namespace:MessengerApp.Views"
+        xmlns:local="clr-namespace:MessengerApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="800"     
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <VM:MainWindowViewModel x:Key="MainWindowViewModel"/>
+        
+        <DataTemplate DataType="{x:Type VM:ControlAViewModel}">
+            <Views:ControlAView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type VM:ControlBViewModel}">
+            <Views:ControlBView/>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid DataContext="{StaticResource MainWindowViewModel}">
+        <StackPanel HorizontalAlignment="center">
+            <ContentControl Content="{Binding ControlAViewModel}" Margin="5"/>
+            <ContentControl Content="{Binding ControlBViewModel}" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>
